@@ -1,0 +1,24 @@
+#Create a Replica Set
+#Apply this "Kubectl apply -f <Filename>"
+#Delete this "kubectl delete -f <FileName>"
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-replica
+  namespace: ashish
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-rep
+  template:
+    metadata:
+      labels:
+        app: nginx-rep
+    spec:
+      containers:
+        - name: ngnix-repilica1
+          image: nginx:latest
+          ports:
+            -  containerPort: 80    

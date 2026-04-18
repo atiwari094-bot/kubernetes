@@ -1,0 +1,55 @@
+#Create a DeploymentSet
+#Apply this "kubectl apply -f deployment.yml"
+#Delete this "Kubectl delete -f deployment.yml"
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  namespace: ashish
+  labels:
+    env: prod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-dep
+  template:
+    metadata:
+      labels:
+        app: nginx-dep
+    spec:                      # ✅ yahi hona chahiye
+      containers:
+        - name: nginx-deployment
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+

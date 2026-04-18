@@ -1,0 +1,17 @@
+#Create a Pod under a specifc NameSpace 
+#Apply Pod"kubectl apply -f create_pod.yml"
+#Delete a Pod "kubect delete -f create_pod.yml"
+#Port forwarding "kubectl port-forward pod/nginx-pod 8000:80 --address=0.0.0.0 -n ashish &"
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  namespace: ashish
+spec:
+  containers:
+    - name: nginx-pod
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+        

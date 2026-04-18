@@ -1,0 +1,35 @@
+
+Scale the Pods
+
+"kubectl scale deployment nginx-deploy --replicas=5 -n ashish"
+
+Isse Pod scale hoge 3 se 5 ho jayege
+
+Rolling Update (image change)
+
+"kubectl set image deployment/nginx-deploy nginx-deployment=nginx:1.25 -n ashish"
+
+👉 Ye:
+
+naye pods create karega
+purane gradually delete karega
+👉 zero downtime
+
+
+Status check
+
+"kubectl rollout status deployment nginx-deploy -n ashish"
+
+History check
+
+"kubectl rollout history deployment nginx-deploy -n ashish"
+
+
+Rollback (important)
+
+Agar update fail ho gaya:
+
+"kubectl rollout undo deployment nginx-deploy -n ashish"
+
+Important : “Rollback only reverts the application version, it does not affect the replica count. Scaling must be done separately.”
+
