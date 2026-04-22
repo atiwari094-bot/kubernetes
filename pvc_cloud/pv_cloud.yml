@@ -1,0 +1,13 @@
+#Create a PV in AWS ebs
+#apply this "kubectl apply -f pv_cloud.yml"
+#Show this  details "kubectl get sc"
+
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: aws-sc
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2
+reclaimPolicy: Delete   #In production we use Retain 
+volumeBindingMode: WaitForFirstConsumer  # Create pv at time of Pod create when you use "Immediate" it create immediate

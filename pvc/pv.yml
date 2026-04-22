@@ -1,0 +1,26 @@
+#Create a PersistentVolume(PV)
+#Note: In this not mention Namespace because PV is free from namespace
+#Apply this "kubectl apply -f pv.yml"
+#Check Pv is deploy "kubectl get pv"
+#Descirbe the pv "kubectl describe pv my-pv"
+
+
+
+
+apiVersion: v1
+kind: PersistentVolume  
+metadata:
+  name: my-pv
+  namespace: ashish
+spec:
+ capacity:
+   storage: 1Gi
+ accessModes:
+    - ReadWriteOnce
+ persistentVolumeReclaimPolicy: Retain
+ storageClassName: local-storage
+ hostPath: 
+   path: /mnt/data
+
+
+

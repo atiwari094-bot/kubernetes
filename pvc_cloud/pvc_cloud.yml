@@ -1,0 +1,16 @@
+#Create a PVC in AWS ebs
+#apply this "kubectl apply -f pvc_cloud.yml"
+
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cloud-pvc
+  namespace: ashish
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: aws-sc
+  resources:
+    requests:
+      storage: 1Gi

@@ -8,6 +8,8 @@ kind: Pod
 metadata:
   name: nginx-pod
   namespace: ashish
+  labels:
+    app: nginx-pod
 spec:
   containers:
     - name: nginx-pod
